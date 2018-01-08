@@ -1,9 +1,9 @@
-import os
 import time
+
+from binance.enums import *
 
 from client import Client
 from enums import *
-from binance.enums import *
 
 
 def trade():
@@ -22,9 +22,9 @@ def trade():
     # Trade by conditions
     order = None
     if is_need_to_buy:
-        order = client.create_buy_order(client.best_ask)
+        order = client.create_buy_order(price=client.best_ask)
     if is_need_to_sell:
-        order = client.create_sell_order(client.best_bid)
+        order = client.create_sell_order(price=client.best_bid)
 
     # Handle order
     if order is not None:
@@ -54,7 +54,7 @@ def trade():
 
 if __name__ == '__main__':
     # Trade client
-    client = Client('TRXBTC')
+    client = Client(SYMBOL)
 
     # Trade loop
     while True:
