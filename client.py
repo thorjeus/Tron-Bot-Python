@@ -1,7 +1,8 @@
-from unity import Unity
 from binance.client import Client as BinanceClient
 from binance.enums import *
+
 from enums import *
+from unity import Unity
 
 
 class Client:
@@ -48,17 +49,17 @@ class Client:
 
     def get_info(self):
         Unity.clear()
-        print('=============== BALANCE ===============')
-        print('|BTC: {:32.8f}'.format(self.btc_balance) + '|')
-        print('|TRX: {:32.8f}'.format(self.trx_balance) + '|')
-        print('|ALL: {:32.8f}'.format(self.all_balance) + '|')
-        print('|============== MARKET ===============|')
-        print('|LAST_TRADE_PRICE: {:19.8f}'.format(self.last_trade_price) + '|')
-        print('|BEST_ASK: {:27.8f}'.format(self.best_ask) + '|')
-        print('|BEST_BID: {:27.8f}'.format(self.best_bid) + '|')
-        print('|ASK_CHANGE: {:+25.3%}'.format(self.ask_change) + '|')
-        print('|BID_CHANGE: {:+25.3%}'.format(self.bid_change) + '|')
-        print('=======================================')
+        print('================ BALANCE ================')
+        print('|BTC_BALANCE: {:26.8f}'.format(self.btc_balance) + '|')
+        print('|TRX_BALANCE: {:26.8f}'.format(self.trx_balance) + '|')
+        print('|ALL_BALANCE: {:26.8f}'.format(self.all_balance) + '|')
+        print('|=============== MARKET ================|')
+        print('|LAST_TRADE_PRICE: {:21.8f}'.format(self.last_trade_price) + '|')
+        print('|BEST_ASK: {:29.8f}'.format(self.best_ask) + '|')
+        print('|BEST_BID: {:29.8f}'.format(self.best_bid) + '|')
+        print('|ASK_CHANGE: {:+27.3%}'.format(self.ask_change) + '|')
+        print('|BID_CHANGE: {:+27.3%}'.format(self.bid_change) + '|')
+        print('=========================================')
 
     def _get_last_trade_price(self):
         # Find newest filled order's price

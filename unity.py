@@ -12,5 +12,4 @@ class Unity:
 
     @staticmethod
     def clear():
-        print(os.name)
         os.system("cls" if os.name == "nt" else "clear")
