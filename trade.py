@@ -37,13 +37,15 @@ def trade():
 
         # Waiting until order filled
         for wait_times in range(MAX_WAIT_TIME):
-            # Print out wait times
-            print('[INFO]: Waiting for {} order {} times...'.format(order_id, wait_times))
-
-            # Check if trade finished
+            # Check if trade finished every second
+            order = client.get_order_status(order_id)
             if order['status'] == ORDER_STATUS_FILLED:
                 print('[INFO]: {} order success!')
                 return
+
+            # Print out wait times and wait for one second
+            print('[INFO]: Waiting for {} order {} times...'.format(order_id, wait_times))
+            time.sleep(1)
 
         # Cancel order if not success
         print('[INFO]: {} order failure, cancel this order.'.format(order_id))

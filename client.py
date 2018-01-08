@@ -44,6 +44,9 @@ class Client:
         price = '{:.8f}'.format(price)
         return self._client.order_limit_sell(symbol=self._symbol, quantity=TRADE_AMOUNT, price=price)
 
+    def get_order_status(self, order_id):
+        return self._client.get_order(symbol=self._symbol, order_id=order_id)
+
     def cancel_order(self, order_id):
         return self._client.cancel_order(symbol=self._symbol, orderId=order_id)
 
