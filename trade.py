@@ -22,9 +22,9 @@ def trade():
     # Trade by conditions
     order = None
     if is_need_to_buy:
-        order = client.create_buy_order(price=client.best_ask)
+        order = client.create_buy_order(price=client.best_bid + TRADE_PRICE_SHIFT)
     if is_need_to_sell:
-        order = client.create_sell_order(price=client.best_bid)
+        order = client.create_sell_order(price=client.best_ask - TRADE_PRICE_SHIFT)
 
     # Handle order
     if order is not None:
