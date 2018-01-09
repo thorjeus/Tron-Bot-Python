@@ -60,10 +60,13 @@ if __name__ == '__main__':
 
     # Trade loop
     while True:
-        # Update client and print out info
-        client.update()
-        client.get_info()
+        try:
+            # Update client and print out info
+            client.update()
+            client.get_info()
 
-        # Trade every second
-        trade()
-        time.sleep(1)
+            # Trade every second
+            trade()
+            time.sleep(1)
+        except Exception as e:
+            print('[ERROR]: {}'.format(e.args))
